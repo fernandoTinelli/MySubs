@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Badge } from "../Badge/Badge";
 
@@ -6,7 +6,7 @@ type Props = {
 	disabled?: boolean;
 	badge?: number;
 	href?: string;
-	children: ReactNode;
+	children: React.ReactNode;
 };
 
 export const NavBarLink = (props: Props) => {

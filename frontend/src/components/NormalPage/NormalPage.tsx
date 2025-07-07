@@ -1,11 +1,10 @@
-import type { ReactNode } from "react";
 import { NavBar } from "../NavBar/NavBar";
 import { MainContent } from "../MainContent/MainContent";
 import { Footer } from "../Footer/Footer";
 
 type Props = {
 	title?: string;
-	children?: ReactNode;
+	children?: React.ReactNode;
 };
 
 export const NormalPage = (props: Props) => {

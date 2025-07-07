@@ -1,8 +1,6 @@
-import type { ReactNode } from "react";
-
 type Props = {
 	title: string;
-	children: ReactNode;
+	children: React.ReactNode;
 };
 
 export const MainContent = (props: Props) => {
