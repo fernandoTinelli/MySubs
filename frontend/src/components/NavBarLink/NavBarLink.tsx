@@ -1,6 +1,6 @@
 import { useState, type ReactNode } from "react";
-import Badge from "../Badge/Badge";
-import { Link, type Path } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { Badge } from "../Badge/Badge";
 
 type Props = {
 	disabled?: boolean;
@@ -9,7 +9,7 @@ type Props = {
 	children: ReactNode;
 };
 
-export default function NavBarLink(props: Props) {
+export const NavBarLink = (props: Props) => {
 	const [isDisabled, setIsDisabled] = useState(() => props.disabled);
 
 	const classEnabled = "text-gray-900 dark:text-gray-300";
@@ -31,4 +31,4 @@ export default function NavBarLink(props: Props) {
 			</Link>
 		</div>
 	);
-}
+};

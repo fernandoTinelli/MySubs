@@ -1,7 +1,7 @@
-import NormalPage from "../components/NormalPage/NormalPage";
-import SampleHome from "../components/SampleHome/SampleHome";
+import { NormalPage } from "../components/NormalPage/NormalPage";
+import { SampleHome } from "../components/SampleHome/SampleHome";
 
-export default function HomePage() {
+export const HomePage = () => {
 	return (
 		<NormalPage>
 			<div className="pt-5">
@@ -14,4 +14,4 @@ export default function HomePage() {
 			</div>
 		</NormalPage>
 	);
-}
+};

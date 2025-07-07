@@ -5,9 +5,9 @@ import {
 	PlusIcon,
 	TrashIcon,
 } from "@radix-ui/react-icons";
-import NavBarLink from "../NavBarLink/NavBarLink";
+import { NavBarLink } from "../NavBarLink/NavBarLink";
 
-export default function NavBar() {
+export const NavBar = () => {
 	return (
 		<div className="flex justify-between items-center">
 			<div className="flex gap-4">
@@ -36,4 +36,4 @@ export default function NavBar() {
 			</div>
 		</div>
 	);
-}
+};

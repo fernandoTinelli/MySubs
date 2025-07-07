@@ -1,14 +1,16 @@
 import { Checkbox } from "@base-ui-components/react";
 import { useState } from "react";
 
-export default function Item(props: {
+type Props = {
 	title: string;
 	description: string;
 	price: string;
 	expirationDate: string;
 	icon?: string;
 	color?: string;
-}) {
+};
+
+export const Item = (props: Props) => {
 	const [showCheck, setShowCheck] = useState(false);
 
 	const expiration: string = getExpiration(new Date(props.expirationDate));
@@ -44,7 +46,7 @@ export default function Item(props: {
 			</div>
 		</div>
 	);
-}
+};
 
 function CheckIcon(props: React.ComponentProps<"svg">) {
 	return (

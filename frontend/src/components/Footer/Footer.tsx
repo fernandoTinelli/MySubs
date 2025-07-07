@@ -1,7 +1,7 @@
 import { Select } from "@base-ui-components/react";
-import FlagCountryIcon from "../FlagCountryIcon/FlagCountryIcon";
+import { FlagCountryIcon } from "../FlagCountryIcon/FlagCountryIcon";
 
-export default function Footer() {
+export const Footer = () => {
 	const langs = [
 		{
 			label: <FlagCountryIcon cc="US" style="flat" size={24} label="English" />,
@@ -50,7 +50,7 @@ export default function Footer() {
 			</Select.Root>
 		</div>
 	);
-}
+};
 
 function ChevronUpDownIcon(props: React.ComponentProps<"svg">) {
 	return (

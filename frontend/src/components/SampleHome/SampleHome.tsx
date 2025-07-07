@@ -1,6 +1,6 @@
-import Item from "../Item/Item";
+import { Item } from "../Item/Item";
 
-export default function SampleHome() {
+export const SampleHome = () => {
 	return (
 		<>
 			<div className="mt-3 mb-3">
@@ -26,4 +26,4 @@ export default function SampleHome() {
 			</div>
 		</>
 	);
-}
+};

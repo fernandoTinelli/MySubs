@@ -1,9 +1,11 @@
-export default function FlagCountryIcon(props: {
+type Props = {
 	label?: string;
 	cc: string;
 	style: string;
 	size: number;
-}) {
+};
+
+export const FlagCountryIcon = (props: Props) => {
 	const src: string = "https://flagsapi.com/:country_code/:style/:size.png";
 
 	return (
@@ -17,4 +19,4 @@ export default function FlagCountryIcon(props: {
 			{props.label}
 		</div>
 	);
-}
+};

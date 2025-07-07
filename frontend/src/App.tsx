@@ -1,12 +1,12 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import HomePage from "./pages/HomePage";
-import "./App.css";
-import "react-toastify/dist/ReactToastify.css";
 import { LoginPage } from "./pages/LoginPage";
 import { UserProvider } from "./context/useAuth";
+import { HomePage } from "./pages/HomePage";
+import "./App.css";
+import "react-toastify/dist/ReactToastify.css";
 
-function App() {
+const App = () => {
 	return (
 		<>
 			<BrowserRouter>
@@ -21,6 +21,6 @@ function App() {
 			<ToastContainer theme="auto" />
 		</>
 	);
-}
+};
 
 export default App;
