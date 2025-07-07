@@ -5,6 +5,7 @@ import { UserProvider } from "./context/useAuth";
 import { HomePage } from "./pages/HomePage";
 import "./App.css";
 import "react-toastify/dist/ReactToastify.css";
+import { RegisterPage } from "./pages/RegisterPage";
 
 const App = () => {
 	return (
@@ -14,6 +15,7 @@ const App = () => {
 					<Routes>
 						<Route path="/" element={<HomePage />} />
 						<Route path="/login" element={<LoginPage />} />
+						<Route path="/register" element={<RegisterPage />} />
 					</Routes>
 				</UserProvider>
 			</BrowserRouter>

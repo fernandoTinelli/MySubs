@@ -21,6 +21,8 @@ export const handleError = (error: any) => {
 			window.history.pushState({}, "LoginPage", "/login");
 		} else if (err) {
 			toast.warning(err?.data || err?.statusText || "Server did not respond");
+		} else {
+			toast.warning("Server did not respond");
 		}
 	}
 };

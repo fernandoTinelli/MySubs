@@ -32,7 +32,7 @@ export const NavBar = () => {
 
 			<div className="flex gap-4">
 				<NavBarLink href="login">Log in</NavBarLink>
-				<NavBarLink>Sign up</NavBarLink>
+				<NavBarLink href="register">Sign up</NavBarLink>
 			</div>
 		</div>
 	);
