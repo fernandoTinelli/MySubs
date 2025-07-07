@@ -1,0 +1,109 @@
+import * as Yup from "yup";
+import { useAuth } from "../context/useAuth";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { CheckboxForm } from "../components/Form/CheckboxForm";
+
+type Props = {};
+
+type LoginFormInputs = {
+	userName: string;
+	password: string;
+};
+
+const validation = Yup.object().shape({
+	userName: Yup.string().required("Username is required"),
+	password: Yup.string().required("Password is required"),
+});
+
+export const LoginPage = (props: Props) => {
+	const { loginUser } = useAuth();
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+	} = useForm<LoginFormInputs>({ resolver: yupResolver(validation) });
+
+	const handleLogin = (form: LoginFormInputs) => {
+		console.log(loginUser);
+
+		loginUser(form.userName, form.password);
+	};
+
+	return (
+		<div className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-900 transition-colors">
+			<div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg w-full max-w-md space-y-6">
+				<div className="flex justify-center items-center">
+					<h2 className="text-2xl font-bold text-gray-800 dark:text-white">
+						MySubs
+					</h2>
+				</div>
+
+				<form className="space-y-4" onSubmit={handleSubmit(handleLogin)}>
+					<div>
+						<label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+							Email
+						</label>
+						<input
+							type="text"
+							id="username"
+							placeholder="Username"
+							className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+							{...register("userName")}
+						/>
+						{errors.userName ? (
+							<p className="text-red-500">{errors.userName.message}</p>
+						) : (
+							""
+						)}
+					</div>
+
+					<div>
+						<label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+							Password
+						</label>
+						<input
+							type="password"
+							id="password"
+							placeholder="••••••••"
+							className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+							{...register("password")}
+						/>
+						{errors.password ? (
+							<p className="text-red-500">{errors.password.message}</p>
+						) : (
+							""
+						)}
+					</div>
+
+					<div className="flex items-center justify-between">
+						<CheckboxForm label="Remember me" />
+						<a
+							href="#"
+							className="text-sm text-blue-500 dark:text-blue-300 hover:underline  hover:underline"
+						>
+							Forgot password?
+						</a>
+					</div>
+
+					<button
+						type="submit"
+						className="w-full py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-md transition"
+					>
+						Login
+					</button>
+				</form>
+
+				<p className="text-sm text-gray-500 dark:text-gray-400 text-center">
+					Don't have an account?{" "}
+					<a
+						href="#"
+						className="text-blue-500 dark:text-blue-300 hover:underline"
+					>
+						Sign up
+					</a>
+				</p>
+			</div>
+		</div>
+	);
+};

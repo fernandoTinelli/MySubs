@@ -31,7 +31,7 @@ export default function NavBar() {
 			<Separator orientation="vertical" className="w-px bg-gray-300" />
 
 			<div className="flex gap-4">
-				<NavBarLink>Log in</NavBarLink>
+				<NavBarLink href="login">Log in</NavBarLink>
 				<NavBarLink>Sign up</NavBarLink>
 			</div>
 		</div>

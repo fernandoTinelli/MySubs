@@ -1,7 +1,7 @@
 import NormalPage from "../components/NormalPage/NormalPage";
 import SampleHome from "../components/SampleHome/SampleHome";
 
-export default function Homepage() {
+export default function HomePage() {
 	return (
 		<NormalPage>
 			<div className="pt-5">

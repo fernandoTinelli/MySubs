@@ -1,32 +1,34 @@
 import { useState, type ReactNode } from "react";
 import Badge from "../Badge/Badge";
+import { Link, type Path } from "react-router-dom";
 
-export default function NavBarLink(props: {
+type Props = {
 	disabled?: boolean;
 	badge?: number;
+	href?: string;
 	children: ReactNode;
-}) {
+};
+
+export default function NavBarLink(props: Props) {
 	const [isDisabled, setIsDisabled] = useState(() => props.disabled);
 
-	const classDefault =
-		"text-sm decoration-gray-400 decoration-1 underline-offset-2 outline-none hover:underline focus-visible:rounded-sm focus-visible:no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-800";
 	const classEnabled = "text-gray-900 dark:text-gray-300";
 	const classDisabled =
 		"pointer-events-none text-gray-300 dark:text-gray-900 cursor-not-allowed";
 
 	return (
 		<div className="relative inline-block">
-			<a
-				href="#"
+			<Link
+				to={{ pathname: props?.href }}
 				className={
 					!isDisabled
-						? `${classDefault} ${classEnabled}`
-						: `${classDefault} ${classDisabled}`
+						? `text-sm decoration-gray-400 decoration-1 underline-offset-2 outline-none hover:underline focus-visible:rounded-sm focus-visible:no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-800 ${classEnabled}`
+						: `text-sm decoration-gray-400 decoration-1 underline-offset-2 outline-none hover:underline focus-visible:rounded-sm focus-visible:no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-800 ${classDisabled}`
 				}
 			>
 				{props.children}
 				{props.badge ? <Badge status={props.badge} /> : ""}
-			</a>
+			</Link>
 		</div>
 	);
 }
