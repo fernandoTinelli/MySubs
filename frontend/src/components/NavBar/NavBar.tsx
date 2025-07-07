@@ -6,24 +6,27 @@ import {
 	TrashIcon,
 } from "@radix-ui/react-icons";
 import { NavBarLink } from "../NavBarLink/NavBarLink";
+import { useAuth } from "../../context/useAuth";
 
 export const NavBar = () => {
+	const { isLoggedIn, logout } = useAuth();
+
 	return (
 		<div className="flex justify-between items-center">
 			<div className="flex gap-4">
-				<NavBarLink disabled={true}>
+				<NavBarLink disabled={!isLoggedIn()}>
 					<HomeIcon />
 				</NavBarLink>
 
-				<NavBarLink disabled={true}>
+				<NavBarLink disabled={!isLoggedIn()}>
 					<PlusIcon />
 				</NavBarLink>
 
-				<NavBarLink disabled={true}>
+				<NavBarLink disabled={!isLoggedIn()}>
 					<TrashIcon />
 				</NavBarLink>
 
-				<NavBarLink disabled={true} badge={2}>
+				<NavBarLink disabled={!isLoggedIn()} badge={2}>
 					<EnvelopeClosedIcon />
 				</NavBarLink>
 			</div>
@@ -31,8 +34,16 @@ export const NavBar = () => {
 			<Separator orientation="vertical" className="w-px bg-gray-300" />
 
 			<div className="flex gap-4">
-				<NavBarLink href="login">Log in</NavBarLink>
-				<NavBarLink href="register">Sign up</NavBarLink>
+				{isLoggedIn() ? (
+					<NavBarLink href="" onClick={logout}>
+						Logout
+					</NavBarLink>
+				) : (
+					<>
+						<NavBarLink href="login">Log in</NavBarLink>
+						<NavBarLink href="register">Sign up</NavBarLink>
+					</>
+				)}
 			</div>
 		</div>
 	);

@@ -7,6 +7,7 @@ type Props = {
 	badge?: number;
 	href?: string;
 	children: React.ReactNode;
+	onClick?: () => void;
 };
 
 export const NavBarLink = (props: Props) => {
@@ -25,6 +26,7 @@ export const NavBarLink = (props: Props) => {
 						? `text-sm decoration-gray-400 decoration-1 underline-offset-2 outline-none hover:underline focus-visible:rounded-sm focus-visible:no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-800 ${classEnabled}`
 						: `text-sm decoration-gray-400 decoration-1 underline-offset-2 outline-none hover:underline focus-visible:rounded-sm focus-visible:no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-800 ${classDisabled}`
 				}
+				onClick={props.onClick}
 			>
 				{props.children}
 				{props.badge ? <Badge status={props.badge} /> : ""}
