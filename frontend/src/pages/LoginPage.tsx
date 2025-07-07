@@ -25,8 +25,6 @@ export const LoginPage = (props: Props) => {
 	} = useForm<LoginFormInputs>({ resolver: yupResolver(validation) });
 
 	const handleLogin = (form: LoginFormInputs) => {
-		console.log(loginUser);
-
 		loginUser(form.userName, form.password);
 	};
 

@@ -2,9 +2,9 @@ import axios from "axios";
 import { handleError } from "../helpers/ErrorHandler";
 import type { UserProfileToken } from "../models/User";
 
-const api = "";
-const loginPath = "";
-const registerPath = "";
+const api = import.meta.env.VITE_API_AUTH;
+const loginPath = import.meta.env.VITE_API_AUTH_LOGIN;
+const registerPath = import.meta.env.VITE_API_AUTH_REGISTER;
 
 export const loginAPI = async (username: string, password: string) => {
 	try {
