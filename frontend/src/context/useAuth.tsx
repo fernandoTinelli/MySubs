@@ -80,7 +80,7 @@ export const UserProvider = ({ children }: Props) => {
 
 					toast.success("Login success!");
 
-					navigate("/");
+					navigate("/home");
 				}
 			})
 			.catch(() => toast.warning("Server error ocurred"));

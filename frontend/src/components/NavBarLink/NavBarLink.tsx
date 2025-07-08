@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Badge } from "../Badge/Badge";
 import { useAuth } from "../../context/useAuth";
