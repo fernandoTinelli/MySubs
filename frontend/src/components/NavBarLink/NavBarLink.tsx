@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Badge } from "../Badge/Badge";
+import { useAuth } from "../../context/useAuth";
 
 type Props = {
-	disabled?: boolean;
+	alwaysEnabled?: boolean;
 	badge?: number;
 	href?: string;
 	children: React.ReactNode;
@@ -11,7 +12,7 @@ type Props = {
 };
 
 export const NavBarLink = (props: Props) => {
-	const [isDisabled, setIsDisabled] = useState(() => props.disabled);
+	const { isLoggedIn } = useAuth();
 
 	const classEnabled = "text-gray-900 dark:text-gray-300";
 	const classDisabled =
@@ -22,7 +23,7 @@ export const NavBarLink = (props: Props) => {
 			<Link
 				to={{ pathname: props?.href }}
 				className={
-					!isDisabled
+					isLoggedIn() || props.alwaysEnabled
 						? `text-sm decoration-gray-400 decoration-1 underline-offset-2 outline-none hover:underline focus-visible:rounded-sm focus-visible:no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-800 ${classEnabled}`
 						: `text-sm decoration-gray-400 decoration-1 underline-offset-2 outline-none hover:underline focus-visible:rounded-sm focus-visible:no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-800 ${classDisabled}`
 				}

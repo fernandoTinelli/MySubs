@@ -14,19 +14,19 @@ export const NavBar = () => {
 	return (
 		<div className="flex justify-between items-center">
 			<div className="flex gap-4">
-				<NavBarLink disabled={!isLoggedIn()}>
+				<NavBarLink>
 					<HomeIcon />
 				</NavBarLink>
 
-				<NavBarLink disabled={!isLoggedIn()}>
+				<NavBarLink>
 					<PlusIcon />
 				</NavBarLink>
 
-				<NavBarLink disabled={!isLoggedIn()}>
+				<NavBarLink>
 					<TrashIcon />
 				</NavBarLink>
 
-				<NavBarLink disabled={!isLoggedIn()} badge={2}>
+				<NavBarLink badge={2}>
 					<EnvelopeClosedIcon />
 				</NavBarLink>
 			</div>
@@ -40,8 +40,12 @@ export const NavBar = () => {
 					</NavBarLink>
 				) : (
 					<>
-						<NavBarLink href="login">Log in</NavBarLink>
-						<NavBarLink href="register">Sign up</NavBarLink>
+						<NavBarLink href="login" alwaysEnabled={true}>
+							Log in
+						</NavBarLink>
+						<NavBarLink href="register" alwaysEnabled={true}>
+							Sign up
+						</NavBarLink>
 					</>
 				)}
 			</div>
