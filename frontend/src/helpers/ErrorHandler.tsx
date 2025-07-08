@@ -12,7 +12,7 @@ export const handleError = (error: any) => {
 			}
 		} else if (typeof err?.data.errors === "object") {
 			for (const e in err?.data.errors) {
-				toast.warning(err.data.errors[e][0]);
+				toast.warning(err.data.errors[e]);
 			}
 		} else if (err?.data) {
 			toast.warning(err.data.error);
