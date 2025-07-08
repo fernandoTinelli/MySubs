@@ -28,11 +28,14 @@ export const registerAPI = async (
 	password: string
 ) => {
 	try {
-		const data = await axios.post<UserProfileToken>(`${api}${registerPath}`, {
-			email: email,
-			username: username,
-			password: password,
-		});
+		const data = await axios.post<UserProfileToken>(
+			`${api}:${port}${registerPath}`,
+			{
+				email: email,
+				username: username,
+				password: password,
+			}
+		);
 		return data;
 	} catch (error) {
 		handleError(error);
