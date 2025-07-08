@@ -8,15 +8,28 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class CosrConfig implements WebMvcConfigurer {
 
-    @Value("${app.cors.allowed-origins}:*")
-    private String[] allowedOrigins;
+    @Value("${app.cors.allowed-origins:*}")
+    private String allowedOrigins;
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**") // todas as rotas
-            .allowedOrigins(this.allowedOrigins)
-            .allowedMethods("*")
-            .allowedHeaders("*")
-            .allowCredentials(true);
+        if (!this.allowedOrigins.contains(new String("*"))) {
+            registry.addMapping("/**") // todas as rotas
+                    .allowedOrigins(this.getAllowedOrigins())
+                    .allowedMethods("*")
+                    .allowedHeaders("*")
+                    .allowCredentials(true);
+        } else {
+            registry.addMapping("/**")
+                    .allowedOriginPatterns("*") // ← permite qualquer porta
+                    .allowedMethods("*")
+                    .allowedHeaders("*")
+                    .allowCredentials(true);
+        }
+        
+    }
+
+    private String[] getAllowedOrigins() {
+        return this.allowedOrigins.split(",");
     }
 }

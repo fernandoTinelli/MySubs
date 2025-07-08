@@ -1,10 +1,10 @@
 package br.tinelli.Model.Auth;
-
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 public record UserAutheticationDTO(
-    @NotBlank String userName,
-    @Min(10) @Max(100) String password
+    @NotBlank(message = "username required") String username,
+
+    @Size(min = 10, max = 100, message = "password must have between 10 and 100 characters")
+    String password
 ) {}
