@@ -1,4 +1,4 @@
-package br.tinelli.Exception.Validation;
+package br.tinelli.ExceptionHandlers.Auth;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;

@@ -4,8 +4,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.tinelli.Model.UserDTO;
 import br.tinelli.Model.Auth.UserAutheticationDTO;
+import br.tinelli.Model.Auth.UserDTO;
 import br.tinelli.Model.Auth.UserRegistrationDTO;
 import br.tinelli.Service.Auth.AuthServiceInterface;
 import jakarta.validation.Valid;

@@ -3,8 +3,8 @@ package br.tinelli.Service.Auth;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Service;
 
-import br.tinelli.Model.UserDTO;
 import br.tinelli.Model.Auth.UserAutheticationDTO;
+import br.tinelli.Model.Auth.UserDTO;
 import br.tinelli.Model.Auth.UserRegistrationDTO;
 
 @Service
